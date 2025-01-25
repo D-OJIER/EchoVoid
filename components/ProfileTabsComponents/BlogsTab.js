@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, TouchableOpacity, Text} from 'react-native';
+import {FlatList, TouchableOpacity, Text, View} from 'react-native';
 import {Style} from './style';
 
 const blogs = [
@@ -15,19 +15,24 @@ const blogs = [
 ];
 
 const BlogsTab = () => {
+  const renderItem = ({item}) => (
+    <TouchableOpacity style={Style.blogPreview}>
+      <Text style={Style.blogTitle}>{item.title}</Text>
+      <Text style={Style.blogExcerpt}>{item.excerpt}</Text>
+      <View style={Style.blogMeta}>
+        <Text style={Style.blogMetaText}>{item.date}</Text>
+        <Text style={Style.blogMetaText}>{item.likes} likes</Text>
+      </View>
+    </TouchableOpacity>
+  );
+
   return (
-    <View>
-      {blogs.map(blog => (
-        <TouchableOpacity key={blog.id} style={Style.blogPreview}>
-          <Text style={Style.blogTitle}>{blog.title}</Text>
-          <Text style={Style.blogExcerpt}>{blog.excerpt}</Text>
-          <View style={Style.blogMeta}>
-            <Text style={Style.blogMetaText}>{blog.date}</Text>
-            <Text style={Style.blogMetaText}>{blog.likes} likes</Text>
-          </View>
-        </TouchableOpacity>
-      ))}
-    </View>
+    <FlatList
+      data={blogs}
+      renderItem={renderItem}
+      keyExtractor={item => item.id.toString()}
+      contentContainerStyle={Style.blogsContainer}
+    />
   );
 };
 

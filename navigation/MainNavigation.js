@@ -7,6 +7,7 @@ import Profile from '../screens/Profile/Profile';
 import Chat from '../screens/Chat/Chat';
 import PostsTab from '../components/ProfileTabsComponents/PostsTab';
 import BlogsTab from '../components/ProfileTabsComponents/BlogsTab';
+import Setting from '../screens/Setting/Setting';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -30,6 +31,7 @@ const MainMenuNavigation = () => {
       }}>
       <Drawer.Screen name={Routes.Home} component={Home} />
       <Drawer.Screen name={Routes.Profile} component={Profile} />
+      <Drawer.Screen name={Routes.Setting} component={Setting} />
     </Drawer.Navigator>
   );
 };

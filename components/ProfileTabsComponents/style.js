@@ -1,4 +1,7 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
+
+const {width} = Dimensions.get('window');
+const itemWidth = width / 3;
 
 export const Style = StyleSheet.create({
   // Grid Layout for Posts
@@ -8,8 +11,8 @@ export const Style = StyleSheet.create({
     backgroundColor: '#572554',
   },
   gridItem: {
-    width: '33.33%',
-    aspectRatio: 1,
+    width: itemWidth,
+    height: itemWidth,
     padding: 1,
   },
   gridImage: {
