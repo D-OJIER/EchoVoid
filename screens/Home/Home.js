@@ -13,8 +13,9 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faScroll} from '@fortawesome/free-solid-svg-icons';
 import UserStory from '../../components/UserStory/UserStory';
 import UserPost from '../../components/UserPost/UserPost';
+import {Routes} from '../../navigation/Routes';
 
-const Home = () => {
+const Home = ({navigation}) => {
   const userStories = [
     {
       firstName: 'Voidwalker',
@@ -270,14 +271,18 @@ const Home = () => {
 
   return (
     <SafeAreaView style={{backgroundColor: '#572554'}}>
-      <StatusBar backgroundColor={'572554'} />
+      <StatusBar backgroundColor={'#572554'} />
       <View style={Style.userPostContainer}>
         <FlatList
           ListHeaderComponent={
             <>
               <View style={Style.header}>
                 <Title title="EchoVoid" />
-                <TouchableOpacity style={Style.messageIcon}>
+                <TouchableOpacity
+                  style={Style.messageIcon}
+                  onPress={() => {
+                    navigation.navigate(Routes.Chat);
+                  }}>
                   <FontAwesomeIcon icon={faScroll} size={25} color="#006400" />
                   <View style={Style.messageNumberContainer}>
                     <Text style={Style.messageNumber}>0</Text>
