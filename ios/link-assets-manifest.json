@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/CaesarDressing-Regular.ttf",
+      "sha1": "ebc9bc29dfeddf6feb91f78f062157ff33e50298"
+    },
+    {
+      "path": "assets/fonts/Jersey15-Regular.ttf",
+      "sha1": "97c878ddad9a33197249307af1bae87ec8465654"
+    }
+  ]
+}
